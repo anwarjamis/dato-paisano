@@ -1,35 +1,66 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+<div class="container my-5">
+  <h2 class="fw-bold mb-4">Editar cuenta</h2>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "row g-3" }) do |f| %>
+    <%= f.error_notification %>
+    <div class="col-md-4">
+      <%= f.input :name,
+                  required: true,
+                  autofocus: true,
+                  label: "Nombre",
+                  input_html: { autocomplete: "name" } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :first_last_name,
+                  required: true,
+                  autofocus: true,
+                  label: "Primer apellido",
+                  input_html: { autocomplete: "first_last_name" } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :second_last_name,
+                  required: true,
+                  autofocus: true,
+                  label: "Segundo apellido",
+                  input_html: { autocomplete: "second_last_name" } %>
+    </div>
+    <div class="col-6">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label: "Email",
+                  input_html: { autocomplete: "email" } %>
+    </div>
+    <div class="col-6">
+      <%= f.input :phone,
+                  required: true,
+                  autofocus: true,
+                  label: "Teléfono (+56 )",
+                  input_html: { autocomplete: "phone" } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.input :birth,
+                  required: true,
+                  autofocus: true,
+                  start_year: Date.today.year - 14,
+                  end_year: Date.today.year - 120,
+                  label: "Fecha de nacimiento",
+                  input_html: { autocomplete: "birth" } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.association :gender,
+                        required: true,
+                        label: "Género",
+                        input_html: { autocomplete: "gender_id" } %>
+    </div>
+    <div class="col-md-4">
+      <%= f.association :origen,
+                        required: true,
+                        label_method: :country,
+                        label: "Origen",
+                        input_html: { autocomplete: "origen_id" } %>
+    </div>
+    <div class="col-12">
+      <%= f.button :submit, "Actualizar datos", class: "btn btn-success text-white" %>
+    </div>
+  <% end %>
+</div>

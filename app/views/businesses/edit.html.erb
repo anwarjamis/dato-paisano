@@ -1,0 +1,92 @@
+<% if current_user.id == @business.user_id %>
+  <div class="container mt-5">
+    <h2 class="fw-bold mb-4">Edita tu negocio</h2>
+    <%= simple_form_for @business, html: { class: "row g-3" } do |b| %>
+      <%= b.error_notification %>
+      <div class="col-md-4">
+        <%= b.input :name,
+                    required: true,
+                    autofocus: true,
+                    label: "Nombre de tu negocio",
+                    input_html: { autocomplete: "name" } %>
+      </div>
+      <div class="col-md-4">
+        <%= b.input :subcategory_id,
+                    collection: @categories,
+                    as: :grouped_select,
+                    group_method: :subcategories,
+                    required: true,
+                    label: "Categoría",
+                    class: "dropdown-item",
+                    input_html: { autocomplete: "subcategory" } %>
+      </div>
+      <div class="col-md-4">
+        <%= b.association :type,
+                          required: true,
+                          label: "Ubicación",
+                          input_html: { autocomplete: "type" } %>
+      </div>
+      <div class="col-md-6">
+        <%= b.input :description,
+                    required: true,
+                    autofocus: true,
+                    as: :text,
+                    label: "Descripción",
+                    input_html: { autocomplete: "description", style: "height: 125px;" } %>
+      </div>
+      <div class="col-md-6">
+        <%= b.input :email,
+                    required: true,
+                    autofocus: true,
+                    label: "Email",
+                    input_html: { autocomplete: "email" } %>
+      </div>
+      <div class="col-md-6">
+        <%= b.input :phone,
+                    required: true,
+                    autofocus: true,
+                    label: "Teléfono (+56 )",
+                    placeholder: "Ej: 9795788XX",
+                    input_html: { autocomplete: "phone" } %>
+      </div>
+      <div class="col-md-6">
+        <%= b.input :link,
+                    autofocus: true,
+                    label: "Link",
+                    placeholder: "Ej: https://www.datopaisano.cl",
+                    input_html: { autocomplete: "link" } %>
+      </div>
+      <div class="col-md-4">
+        <%= b.input :instagram,
+                    required: false,
+                    autofocus: true,
+                    label: "Instagram",
+                    placeholder: "Ej: https://www.instagram.com/datopaisano",
+                    input_html: { autocomplete: "instagram" } %>
+      </div>
+      <div class="col-md-4">
+        <%= b.input :facebook,
+                          required: false,
+                          label: "Facebook",
+                          placeholder: "Ej: https://www.facebook.com/datopaisano",
+                          input_html: { autocomplete: "Facebook" } %>
+      </div>
+      <div class="col-md-4">
+        <%= b.input :tiktok,
+                          required: false,
+                          label: "TikTok",
+                          placeholder: "Ej: https://www.tiktok.com/@datopaisano",
+                          input_html: { autocomplete: "tiktok" } %>
+      </div>
+      <div class="col-12">
+        <%= b.button :submit, "Editar negocio", class: "btn btn-success text-white" %>
+      </div>
+      <% end %>
+    </form>
+  </div>
+<% else %>
+  <div class="container mt-5">
+    <h1>Error</h1>
+    <h2>No puedes editar negocios de otras personas.</h2>
+  </div>
+<% end %>

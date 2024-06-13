@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h4 class="fw-bold" id="marcas">Filtros</h4>
+  <div class="row mt-2 mb-3">
+    <div class="col">
+      <%= form_with(url: businesses_path, id: "filter-form", method: "get") do %>
+        <div class="input-group">
+          <%= select_tag :subcategory_id, options_from_collection_for_select(Subcategory.all, "id", "name", params[:subcategory_id]), include_blank: true, class: "form-select", prompt: "Seleccionar subcategoría" %>
+          <button type="submit" class="btn btn-outline-success">Filtrar</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <h2 class="fw-bold me-3">Todas las marcas</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% @businesses.each do |b| %>
+    <div class="col">
+      <div class="card rounded-4">
+        <div class="card-body">
+          <h5>
+            <%= Subcategory.find(b.subcategory_id).icon.html_safe %>
+            <%= b.name %>
+          </h5>
+          <small class="text-body-tertiary"><%= Subcategory.find(b.subcategory_id).name %></small>
+          <p class="card-text mt-2"><%= b.description %></p>
+          <%= link_to "Ver más", business_path(b), class: "btn btn-success text-white" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

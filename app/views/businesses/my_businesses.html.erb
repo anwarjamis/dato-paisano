@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h1>Mis negocios</h1>
+  <p>Aquí podrás ver, editar y eliminar todos los negocios que has creado.</p>
+  <ul class="list-group rounded-3">
+  <% @businesses.each do |b| %>
+    <li class="list-group-item d-flex justify-content-between alig-items-center">
+      <h5><%= b.name %></h5>
+      <div>
+        <span><%= link_to "Ver", business_path(b), class: "text-success" %></span>
+        <span class="ms-3"><%= link_to "Editar", edit_business_path(b), class: "text-success" %></span>
+        <span>
+          <%= link_to "Eliminar", "#", id: "delete_link", class: "ms-3 text-danger", data: { confirm: "¿Estás seguro de que quieres eliminar este negocio?" } %>
+        </span>
+      </div>
+    </li>
+    <%= form_with(model: @business, method: :delete, url: business_path(b), id: "delete_form") do |form| %>
+    <% end %>
+  <% end %>
+  </ul>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var deleteLink = document.getElementById('delete_link');
+    var deleteForm = document.getElementById('delete_form');
+
+    deleteLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      var confirmMessage = this.getAttribute('data-confirm');
+      if (confirm(confirmMessage)) {
+        deleteForm.submit();
+      }
+    });
+  });
+</script>

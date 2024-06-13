@@ -1,0 +1,41 @@
+<% if current_user.id == @user.id %>
+  <div class="container my-5">
+    <h3 class="fw-bold">Tus datos personales</h3>
+    <ul class="list-group rounded-3">
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Nombre</span>
+        <%= @user.name %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Primer apellido</span>
+        <%= @user.first_last_name %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Segundo apellido</span>
+        <%= @user.second_last_name %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Email</span>
+        <%= @user.email %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Teléfono</span>
+        <%= "+56#{@user.phone}" %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Fecha de nacimiento</span>
+        <%= @user.birth.strftime("%d-%m-%Y") %>
+      </li>
+      <li class="list-group-item d-flex justify-content-between alig-items-center">
+        <span class="fw-bold">Origen</span>
+        <%= Origen.find(@user.origen_id).country %>
+      </li>
+    </ul>
+    <%= link_to "Editar datos", edit_user_path(current_user), class: "btn btn-success text-white mt-3" %>
+  </div>
+<% else %>
+  <div class="container my-5">
+    <h1>Error</h1>
+    <h2>No puedes ver datos de otras personas</h2>
+  </div>
+<% end %>

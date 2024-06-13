@@ -10,3 +10,30 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.btn {
+  border-radius: 0.25rem;
+}
+
+.card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-outline-success:hover {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .custom-banner-mobile {
+      height: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-banner-desktop {
+      height: 500px;
+  }
+}
