@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container my-5">
   <h2 class="fw-bold mb-4">Crear cuenta</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "row g-3" }) do |f| %>
     <%= f.error_notification %>
@@ -73,7 +73,7 @@
                 input_html: { autocomplete: "new-password" } %>
     </div>
     <div class="col-12">
-      <%= f.button :submit, "Crear cuenta", class: "btn btn-success rounded-4" %>
+      <%= f.button :submit, "Crear cuenta", class: "btn btn-success text-white" %>
     </div>
     <% end %>
 

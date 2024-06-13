@@ -1,0 +1,12 @@
+es:
+  date:
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%e de %B de %Y"
+    order:
+      - :day
+      - :month
+      - :year

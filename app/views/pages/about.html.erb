@@ -1,7 +1,90 @@
 <div class="container mt-5">
-  <h1 class="fw-bold">Nosotros</h1>
-  <p>Somos una página para apoyar a los integrantes de la comunidad árabe en latinoamérica 🇵🇸.</p>
-  <h3>Quiero donar</h3>
-  <%= link_to "Donar aquí", "", class: "btn btn-danger text-white rounded-3" %>
+  <div class="container bg-light rounded-5 p-5">
+    <h1 class="fw-semibold">¿Qué es Dato Paisano?</h1>
+    <div class="rounded-4 bg-white p-4 mt-4 shadow-sm">
+      <h4 class="fw-light">Dato Paisano nace como una necesidad de crear una comunidad, apoyo a empresas y emprendimientos de la comunidad árabe en Chile.</h4>
+    </div>
+    <p style="font-size: 1.3rem;" class="mt-4"><strong>Nuestro foco.</strong> Fortalecer comunidad.</p>
+    <div class="row row-cols-1 row-cols-md-4">
+      <div class="col mb-4">
+        <div class="card border-white rounded-4 shadow-sm h-100">
+          <div class="card-body d-flex align-items-center">
+            <div>
+              <p class="text-muted">Buscamos fortalecer económicamente la comunidad promoviendo y ofreciendo servicios de palestinos en Chile.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card border-white rounded-4 shadow-sm h-100">
+          <div class="card-body d-flex align-items-center">
+            <div>
+              <p class="text-muted">Crear conexión entre emprendedores, empresas, servicios y usuarios que apoyen Palestina y el mundo árabe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card border-white rounded-4 shadow-sm h-100">
+          <div class="card-body d-flex align-items-center">
+            <div>
+              <p class="text-muted">Proporcionar un espacio para compartir recursos, ideas, colaboraciones y oportunidades que estén alineados con el apoyo al mundo árabe.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col mb-4">
+        <div class="card border-white rounded-4 shadow-sm h-100">
+          <div class="card-body d-flex align-items-center">
+            <div>
+              <p class="text-muted">Un espacio seguro y dedicado donde los emprendedores o empresas pueden encontrar apoyo mutuo y trabajar juntos para promover sus iniciativas en beneficio de la comunidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-4 accordion accordion-bg-light accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            ¿Quiénes somos?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            El equipo detrás del proyecto "Dato Paisano" está formado por tres chilenas de ascendencia palestina: Carolina Abara, Belén Ahues e Isabel Carmi. Las tres hemos viajado a Palestina gracias a la <%= link_to "Fundación KTH", "https://kthps.org", target: "_blank"%>, y juntas buscamos impulsar la iniciativa "Dato Paisano" con el objetivo de crear comunidad, hermandad y apoyo mutuo, fomentando a los emprendedores y empresas de la comunidad árabe en Chile. <br><br>
+            Carolina Abara, coach neurolingüística y vicepresidenta de la Fundación KTH, se dedica a diversas labores de acción social, incluyendo su compromiso con la causa palestina a través de su voluntariado en la Fundación Belén. Belén Ahues, diseñadora y experta en UX/UI, ha sido parte activa de la Fundación Belén 2000 durante años, enfocándose en generar cambios y aportar a la comunidad árabe en Chile, fomentando lazos, conciencia y apoyo. Isabel Carmi, enfermera comprometida con la causa palestina, ha participado en la Fundación Belén 2000 desde 2014 y, tras su experiencia en el programa KTH en 2022, ha buscado constantemente formas de contribuir a Palestina y su comunidad. <br><br>
+            Juntas, este equipo diverso y comprometido impulsa "Dato Paisano" con el propósito de fortalecer la comunidad y apoyar a los emprendedores y empresas árabes en Chile.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            ¿Cuánto cuesta ser parte de Dato Paisano?
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            Dato Paisano es completamente gratis, pero te invitamos a <%= link_to "donar", "https://www.kthps.org/donate", target: "_blank" %> a la Fundación KTH, iniciativa de liderazgo para explorar y servir a Palestina.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            ¿A dónde van las donaciones?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">
+            El dinero recaudado se destina a la Fundación KTH, cuyo objetivo es formar líderes de la diáspora Palestina y reunir recursos para apoyar la causa. Te invitamos a visitar su página web para contribuir y brindar tu apoyo.
+          </div>
+        </div>
+      </div>
+      <h1 class="mt-5 mb-3 display-4 fw-semibold">Ayuda a construir un futuro mejor para Palestina, tu aporte puede marcar la diferencia.</h1>
+      <%= link_to "Quiero donar", "https://www.kthps.org/donate", target: "_blank", class: "btn btn-success text-white mb-5" %>
+    </div>
+  </div>
 </div>
 <%= render "shared/footer" %>
